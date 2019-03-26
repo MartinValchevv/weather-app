@@ -1,0 +1,166 @@
+body {
+	background: #252526;
+}
+
+.container {
+	width: 500px;
+	height: 300px;
+	margin: 13vh auto;
+	border-radius: 25px;
+	box-shadow: 0 20px 40px 0px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+	height: 20%;
+	background-color: #4C9BEC;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	text-align: center;
+	position: relative;
+}
+
+#temp, #humidity-div {
+	font-family: "Courier New";
+	font-weight: bold;
+	font-size: 60px;
+	color: grey;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.city-icon-holder {
+	position: absolute;
+	left: 25%;
+	top: 40%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#city-name {
+	font-family: "Courier New";
+	font-size: 30px;
+	font-weight: bold;
+	color: #252526;
+}
+
+#icon {
+	width: 50%;
+}
+
+#main {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.city-icon {
+	height: 80%;
+	width: 50%;
+	border-bottom-left-radius: 25px;
+	background: grey;
+}
+
+.temperature {
+	position: absolute;
+	left: 50%;
+	top: 0%;
+	height: 40%;
+	width: 50%;
+}
+
+.humidity {
+	height: 40%;
+	width: 50%;
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	border-bottom-right-radius: 25px;
+}
+
+#search-btn {
+	width: 40px;
+	height: 40px;
+	color: white;
+}
+
+#search-txt {
+	color: black;
+	height: 30px;
+	border-radius: 10px;
+	border-style: none;
+	outline: none;
+	padding-right: 1px;
+	padding-left: 1px;
+	text-align: center;
+}
+
+.search {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.five-days {
+	height: 45rem;
+	width: 100%;
+	margin: -5vh auto;
+	box-shadow: 0 20px 40px 0px rgba(0, 0, 0, 0.3);
+	border-radius: 25px;
+	display: block;
+	padding: 1rem 0;
+	margin-bottom: 5rem;
+	background: transparent;
+}
+
+body>div>div>h2 {
+	text-align: center;
+}
+
+h4 {
+	text-align: center;
+}
+
+h2 {
+	color: #4C9BEC;
+	font-family: "Courier New";
+	font-size: 30px;
+	font-weight: bold;
+}
+
+p {
+	text-align: center;
+	margin-bottom: 0;
+}
+
+body>div>div>div {
+	text-align: center;
+	border-bottom: solid 1px grey;
+}
+
+body>div>div>div:nth-child(16) {
+	border: none;
+}
+
+h4, p, span {
+	color: grey;
+}
+
+span {
+	color: #4C9BEC;
+}
+
+#current-date {
+	color: black;
+	font-family: "Courier New";
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 1rem;
+}
+
