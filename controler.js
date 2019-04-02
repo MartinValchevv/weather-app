@@ -122,7 +122,6 @@ function theResponse(response) {
     humidity.innerHTML = jsonObject.main.humidity + "%";
     dateNow.innerHTML = currentTime.getDate() + '/' + Number(currentTime.getMonth() + 1) + '/' + currentTime.getFullYear()
     $("#farenhait").click(function(){
-        console.log(parseInt(jsonObject.main.temp - 273))
         var f=$("#temp").html();
         var c= (parseInt(jsonObject.main.temp - 273) * 9 / 5 + 32).toFixed(0) + "°F"
         $("#temp").html(c);
