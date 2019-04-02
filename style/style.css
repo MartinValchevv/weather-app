@@ -10,6 +10,11 @@ body {
 	box-shadow: 0 20px 40px 0px rgba(0, 0, 0, 0.3);
 }
 
+.tempConverter {
+	text-align: center;
+	padding: 0.3rem;
+}
+
 .header {
 	height: 20%;
 	background-color: #4C9BEC;
@@ -29,6 +34,48 @@ body {
 	top: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
+}
+
+#temp {
+	padding-top: 3rem;
+	z-index: -1;
+}
+
+.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-group>.btn:first-child {
+    margin-left: 0;
+}
+.btn-group-vertical>.btn, .btn-group>.btn {
+    position: relative;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    margin-bottom: 0;
+}
+.btn.disabled, .btn:disabled {
+    opacity: .65;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem 2.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .25rem;
+	transition: all .15s ease-in-out;
+	cursor: pointer;
+	font-weight: bold;
 }
 
 .city-icon-holder {
@@ -163,4 +210,3 @@ span {
 	text-align: center;
 	padding-top: 1rem;
 }
-

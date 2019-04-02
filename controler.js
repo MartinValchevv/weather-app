@@ -13,6 +13,7 @@ searchInput.addEventListener("keyup", enterPressed);
 
 let currentTime = new Date()
 
+
 function currentTown() {
     let searchLink = "https://api.openweathermap.org/data/2.5/weather?q=" + "Sofia" + "&appid=" + appKey;
     httpRequestAsync(searchLink, theResponse);
@@ -30,9 +31,22 @@ function currentTown() {
                 if (index > 4) {
                     return
                 } else {
-                    create += "<h4>Day " + Number(index+1) + "</h4> "
+                    let day = Number(currentTime.getDate())
+                    let month = Number(currentTime.getMonth() + 1)
+                    let year = currentTime.getFullYear()
+                    if (day + index > 30) {
+                        day = 0 - index
+                        if (index === 4) {
+                            day = 0 - index + 1
+                        }
+                        month = Number(currentTime.getMonth() + 1) + 1
+                        if (currentTime.getMonth() === 11) {
+                            year += 1
+                        }
+                    }
+                    create += "<h4>Day " + Number((day + 1) + index) + '/' + month + '/' + year + "</h4> "
                     create += "<p>"
-                    create += parseInt(val.main.temp - 273) + "&degC / " + (parseInt(val.main.temp - 273) * 9 /5 + 32).toFixed(1) + "&degF"
+                    create += parseInt(val.main.temp - 273) + "&degC / " + (parseInt(val.main.temp - 273) * 9 / 5 + 32).toFixed(1) + "&degF"
                     create += "<span> " + val.weather[0].description + "</span>";
                     create += "</p>"
                     create += "<div>"
@@ -44,6 +58,7 @@ function currentTown() {
         }
     });
 }
+
 
 function enterPressed(event) {
     if (event.key === "Enter") {
@@ -70,9 +85,22 @@ function findWeatherDetails() {
                     if (index > 4) {
                         return
                     } else {
-                        create += "<h4>Day " + index + "</h4> "
+                        let day = Number(currentTime.getDate())
+                        let month = Number(currentTime.getMonth() + 1)
+                        let year = currentTime.getFullYear()
+                        if (day + index > 30) {
+                            day = 0 - index
+                            if (index === 4) {
+                                day = 0 - index + 1
+                            }
+                            month = Number(currentTime.getMonth() + 1) + 1
+                            if (currentTime.getMonth() === 11) {
+                                year += 1
+                            }
+                        }
+                        create += "<h4>Day " + Number((day + 1) + index) + '/' + month + '/' + year + "</h4> "
                         create += "<p>"
-                        create += parseInt(val.main.temp - 273) + "&degC / " + (parseInt(val.main.temp - 273) * 9 /5 + 32).toFixed(1) + "&degF"
+                        create += parseInt(val.main.temp - 273) + "&degC / " + (parseInt(val.main.temp - 273) * 9 / 5 + 32).toFixed(1) + "&degF"
                         create += "<span> " + val.weather[0].description + "</span>";
                         create += "</p>"
                         create += "<div>"
@@ -92,7 +120,22 @@ function theResponse(response) {
     icon.src = "http://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
     temperature.innerHTML = parseInt(jsonObject.main.temp - 273) + "°C";
     humidity.innerHTML = jsonObject.main.humidity + "%";
-    dateNow.innerHTML = currentTime.getDate() + '/' + Number(currentTime.getMonth()+1) + '/' + currentTime.getFullYear()
+    dateNow.innerHTML = currentTime.getDate() + '/' + Number(currentTime.getMonth() + 1) + '/' + currentTime.getFullYear()
+    $("#farenhait").click(function(){
+        console.log(parseInt(jsonObject.main.temp - 273))
+        var f=$("#temp").html();
+        var c= (parseInt(jsonObject.main.temp - 273) * 9 / 5 + 32).toFixed(0) + "°F"
+        $("#temp").html(c);
+        $(this).prop("disabled",true);
+        $("#celcius").prop("disabled",false);
+      });
+      $("#celcius").click(function(){
+        var c=$("#temp").html();
+        var f=parseInt(jsonObject.main.temp - 273) + "°C"
+        $("#temp").html(f);
+        $(this).prop("disabled",true);
+        $("#farenhait").prop("disabled",false);
+      });
 }
 
 function httpRequestAsync(url, callback) {
