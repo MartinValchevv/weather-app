@@ -18,7 +18,7 @@ function currentTown() {
     let searchLink = "https://api.openweathermap.org/data/2.5/weather?q=" + "Sofia" + "&appid=" + appKey;
     httpRequestAsync(searchLink, theResponse);
     let aaa = 'Sofia'
-    let urlFiveDays = 'http://api.openweathermap.org/data/2.5/forecast?appid=' + appKey + '&q=' + aaa + '&count=5';
+    let urlFiveDays = 'https://api.openweathermap.org/data/2.5/forecast?appid=' + appKey + '&q=' + aaa + '&count=5';
 
     $.ajax({
         url: urlFiveDays,
@@ -72,7 +72,7 @@ function findWeatherDetails() {
     } else {
         let searchLink = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput.value + "&appid=" + appKey;
         httpRequestAsync(searchLink, theResponse);
-        let urlFiveDays = 'http://api.openweathermap.org/data/2.5/forecast?appid=' + appKey + '&q=' + searchInput.value + '&count=5';
+        let urlFiveDays = 'https://api.openweathermap.org/data/2.5/forecast?appid=' + appKey + '&q=' + searchInput.value + '&count=5';
 
         $.ajax({
             url: urlFiveDays,
@@ -117,7 +117,7 @@ function findWeatherDetails() {
 function theResponse(response) {
     let jsonObject = JSON.parse(response);
     cityName.innerHTML = jsonObject.name;
-    icon.src = "http://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
+    icon.src = "https://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
     temperature.innerHTML = parseInt(jsonObject.main.temp - 273) + "°C";
     humidity.innerHTML = jsonObject.main.humidity + "%";
     dateNow.innerHTML = currentTime.getDate() + '/' + Number(currentTime.getMonth() + 1) + '/' + currentTime.getFullYear()
